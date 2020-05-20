@@ -1,0 +1,136 @@
+{
+	"info": {
+		"_postman_id": "b72e18d9-d91a-40e1-9c1a-f4e4d21e1418",
+		"name": "reqres.in",
+		"description": "Test Collection for reqres.in Rest API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get User 2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "2d14ee28-c643-4c2c-b0b9-0a5fb953a011",
+						"exec": [
+							"let jsonData1 = pm.response.json()\r",
+							"pm.collectionVariables.set(\"userObj1\", JSON.stringify(jsonData1));\r",
+							"pm.collectionVariables.set(\"userId\", jsonData1[\"data\"][\"id\"]);\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://reqres.in/api/users/2",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users",
+						"2"
+					]
+				},
+				"description": "Returns User Janet Weaver"
+			},
+			"response": []
+		},
+		{
+			"name": "Get User by id from Page 1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "dac02825-8615-4740-965e-609bdfdb9019",
+						"exec": [
+							"let jsonData2 = pm.response.json()\r",
+							"let jsonData1 = JSON.parse(pm.variables.get(\"userObj1\"));\r",
+							"\r",
+							"pm.test(\"User from the 1st response is included in the 2nd response\", function () {\r",
+							"    pm.expect(_.isMatch(jsonData2, jsonData1)).to.be.true\r",
+							"});\r",
+							"pm.test(\"User from the 1st response is equal to the 2nd response\", function () {\r",
+							"    pm.expect(_.isEqual(jsonData2, jsonData1)).to.be.true\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://reqres.in/api/users?page=1&id={{userId}}",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "id",
+							"value": "{{userId}}"
+						}
+					]
+				},
+				"description": "Returns a user from page 1 by id"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "768cfd97-8607-4bf6-ac53-784228f5aaa4",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "54b99358-5422-4c6a-b887-2f7b79ac8c99",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "99e2f0b0-76c8-4ae0-9883-2c4272b70979",
+			"key": "userId",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"id": "3b9feccc-9416-46ed-9ed4-24d6610af7cb",
+			"key": "userObj1",
+			"value": "",
+			"type": "string"
+		}
+	],
+	"protocolProfileBehavior": {}
+}

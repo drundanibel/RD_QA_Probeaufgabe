@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>change_chrome_search_provider</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>17c4a501-235f-4948-b933-96675d2026f3</testCaseGuid>
+   <variable>
+      <defaultValue>2</defaultValue>
+      <description></description>
+      <id>48d3b027-b7f3-4c35-9bb7-de83475d2c81</id>
+      <masked>false</masked>
+      <name>quantity</name>
+   </variable>
+</TestCaseEntity>

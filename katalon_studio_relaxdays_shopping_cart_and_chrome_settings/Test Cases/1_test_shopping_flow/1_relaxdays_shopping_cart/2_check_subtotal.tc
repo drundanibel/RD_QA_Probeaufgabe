@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>2_check_subtotal</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>e25f8644-9c48-476f-af7b-5827aa318725</testCaseGuid>
+   <variable>
+      <defaultValue>[]</defaultValue>
+      <description></description>
+      <id>76c75894-d039-45e1-8aea-74edf590cd5e</id>
+      <masked>false</masked>
+      <name>prices</name>
+   </variable>
+</TestCaseEntity>
